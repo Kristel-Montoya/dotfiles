@@ -1,0 +1,94 @@
+/* Rosé Pine Dawn - Versión Directa (Sin variables para evitar errores) */
+
+* {
+    /* Si no tienes esta fuente, usa 'sans-serif' */
+    font-family: "JetBrainsMono Nerd Font", "Font Awesome 6 Free", sans-serif;
+    font-size: 13px;
+    border: none;
+}
+
+window#waybar {
+    background-color: transparent;
+}
+
+/* Estilo común para todos los módulos (Fondo Crema #faf4ed) */
+#workspaces,
+#window,
+#clock,
+#pulseaudio,
+#network,
+#cpu,
+#memory,
+#battery,
+#tray,
+#custom-power {
+    background-color: #faf4ed;
+    color: #575279;
+    padding: 0px 15px;
+    margin: 4px 4px;
+    border-radius: 12px;
+}
+
+/* --- Bordes Llamativos con Colores Rosé Pine --- */
+
+#workspaces {
+    border: 2px solid #907aa9; /* Iris (Morado) */
+}
+
+#workspaces button {
+    color: #9893a5; /* Muted */
+    padding: 0 5px;
+}
+
+#workspaces button.active {
+    color: #907aa9; /* Iris */
+}
+
+#window {
+    border: 2px solid #286983; /* Pine (Azul) */
+}
+
+#clock {
+    border: 2px solid #d7827e; /* Rose (Rosa) */
+    color: #d7827e;
+    font-weight: bold;
+}
+
+#pulseaudio {
+    border: 2px solid #ea9d34; /* Gold (Dorado) */
+    color: #ea9d34;
+}
+
+#network {
+    border: 2px solid #56949f; /* Foam (Cian) */
+    color: #56949f;
+}
+
+#cpu {
+    border: 2px solid #907aa9; /* Iris */
+    color: #907aa9;
+}
+
+#memory {
+    border: 2px solid #d7827e; /* Rose */
+    color: #d7827e;
+}
+
+#battery {
+    border: 2px solid #286983; /* Pine */
+    color: #286983;
+}
+
+#battery.critical {
+    background-color: #b4637a; /* Love (Rojo/Rosa fuerte) */
+    color: #faf4ed;
+}
+
+#tray {
+    border: 2px solid #9893a5; /* Muted */
+}
+
+#custom-power {
+    border: 2px solid #b4637a; /* Love */
+    color: #b4637a;
+}

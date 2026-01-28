@@ -1,0 +1,12 @@
+* {
+    /* Rosé Pine Dawn Palette */
+    background:     #faf4edFF;
+    background-alt: #f2e9e1FF;
+    foreground:     #575279FF;
+    selected:       #907aa9FF; /* Iris */
+    active:         #286983FF; /* Pine */
+    urgent:         #b4637aff; /* Love */
+    
+    /* Para bordes y detalles */
+    border-color:   #d7827eFF; /* Rose */
+}

@@ -1,94 +1,66 @@
-/* Rosé Pine Dawn - Versión Directa (Sin variables para evitar errores) */
+/* Rosé Pine Dawn - Estética Unificada */
 
 * {
-    /* Si no tienes esta fuente, usa 'sans-serif' */
-    font-family: "JetBrainsMono Nerd Font", "Font Awesome 6 Free", sans-serif;
-    font-size: 13px;
+    font-family: "JetBrainsMono Nerd Font", sans-serif;
+    font-size: 12px;
     border: none;
 }
 
 window#waybar {
-    background-color: transparent;
+    background-color: rgba(250, 244, 237, 0.7); /* Transparencia para el Blur */
+    border-radius: 22px;
 }
 
-/* Estilo común para todos los módulos (Fondo Crema #faf4ed) */
-#workspaces,
-#window,
-#clock,
-#pulseaudio,
-#network,
-#cpu,
-#memory,
-#battery,
-#tray,
-#custom-power {
+/* Contenedores de módulos */
+#custom-launcher, #clock, #network, #cpu, #memory, #battery, #pulseaudio, #tray, #custom-power {
     background-color: #faf4ed;
     color: #575279;
-    padding: 0px 15px;
-    margin: 4px 4px;
-    border-radius: 12px;
+    margin: 5px 0px;
+    padding: 0 5px;
+    border-radius: 16px; /* Bordes suaves estilo Material You */
 }
 
-/* --- Bordes Llamativos con Colores Rosé Pine --- */
+/* --- Personalización de Módulos --- */
+
+#custom-launcher {
+    color: #907aa9; /* Iris */
+    margin-left: 8px;
+    padding: 0px 5px 0px 8px;
+}
 
 #workspaces {
-    border: 2px solid #907aa9; /* Iris (Morado) */
-}
-
-#workspaces button {
-    color: #9893a5; /* Muted */
+    border: 1px solid rgba(144, 122, 169, 0.2);
+    background-color: #faf4ed;
+    color: #575279;
+    margin: 5px 3px;
     padding: 0 5px;
+    border-radius: 16px; 
 }
 
 #workspaces button.active {
-    color: #907aa9; /* Iris */
-}
-
-#window {
-    border: 2px solid #286983; /* Pine (Azul) */
-}
-
-#clock {
-    border: 2px solid #d7827e; /* Rose (Rosa) */
-    color: #d7827e;
-    font-weight: bold;
-}
-
-#pulseaudio {
-    border: 2px solid #ea9d34; /* Gold (Dorado) */
-    color: #ea9d34;
-}
-
-#network {
-    border: 2px solid #56949f; /* Foam (Cian) */
-    color: #56949f;
-}
-
-#cpu {
-    border: 2px solid #907aa9; /* Iris */
     color: #907aa9;
 }
 
-#memory {
-    border: 2px solid #d7827e; /* Rose */
-    color: #d7827e;
+#clock {
+    font-weight: bold;
+    color: #286983; /* Pine */
 }
 
-#battery {
-    border: 2px solid #286983; /* Pine */
-    color: #286983;
-}
+/* Agrupación de la derecha */
+#network { border-radius: 16px 0 0 16px; color: #b4637a; }
+#cpu { border-radius: 0; color: #d7827e; }
+#memory { border-radius: 0; color: #ea9d34; }
+#battery { border-radius: 0; color: #56949f; }
+#pulseaudio { border-radius: 0; color: #907aa9; }
+#tray { border-radius: 0; }
+#custom-power { border-radius: 0 16px 16px 0; color: #b4637a; margin-right: 8px; }
 
-#battery.critical {
-    background-color: #b4637a; /* Love (Rojo/Rosa fuerte) */
-    color: #faf4ed;
-}
-
-#tray {
-    border: 2px solid #9893a5; /* Muted */
-}
-
-#custom-power {
-    border: 2px solid #b4637a; /* Love */
-    color: #b4637a;
+/* Separadores sutiles entre módulos agrupados */
+.modules-right > widget:not(:first-child) > #cpu,
+.modules-right > widget:not(:first-child) > #memory,
+.modules-right > widget:not(:first-child) > #battery,
+.modules-right > widget:not(:first-child) > #pulseaudio,
+.modules-right > widget:not(:first-child) > #tray,
+.modules-right > widget:not(:first-child) > #custom-power {
+    border-left: 1px solid rgba(152, 147, 165, 0.2);
 }

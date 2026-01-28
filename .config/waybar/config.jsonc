@@ -3,76 +3,57 @@
     "layer": "top",
     "position": "top",
     "height": 34,
-    "spacing": 4,
-    "margin-top": 6,
-    "margin-left": 10,
-    "margin-right": 10,
+    "margin-top": 8,
+    "margin-left": 15,
+    "margin-right": 15,
+    "spacing": 0,
 
-    "modules-left": [
-        "hyprland/workspaces",
-        "hyprland/window"
-    ],
-    "modules-center": [
-        "clock"
-    ],
-    "modules-right": [
-        "pulseaudio",
-        "network",
-        "cpu",
-        "memory",
-        "battery",
-        "tray",
-        "custom/power"
-    ],
+    "modules-left": ["custom/launcher", "hyprland/workspaces"],
+    "modules-center": ["clock"],
+    "modules-right": ["network", "cpu", "memory", "battery", "pulseaudio", "tray", "custom/power"],
+
+    "custom/launcher": {
+        "format": " ", // Puedes usar un icono de puntos o el logo de tu distro
+        "on-click": "ags -t dashboard", // Comando para abrir el Dashboard
+        "tooltip": false
+    },
 
     "hyprland/workspaces": {
-        "disable-scroll": true,
-        "all-outputs": true,
         "format": "{icon}",
         "format-icons": {
-            "active": "",
-            "default": ""
+            "default": "○",
+            "active": "●",
+            "urgent": "⦿"
         }
     },
 
-    "hyprland/window": {
-        "format": " {title} ",
-        "max-length": 40
-    },
-
     "clock": {
-        "format": "  {:%H:%M}",
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format-alt": "  {:%d-%m-%Y}"
+        "format": " {:%H:%M  •  %A, %b %d} ",
+        "on-click": "ags -t calendar", // Comando para abrir el Calendario
+        "tooltip": false
     },
-
-    "pulseaudio": {
-        "format": "{icon} {volume}%",
-        "format-muted": " Muted",
-        "format-icons": {
-            "default": ["", "", ""]
-        },
-        "on-click": "pavucontrol"
+"pulseaudio": {
+        "format": " {icon} {volume}% ",
+        "format-icons": { "default": ["󰕿", "󰖀", "󰕾"] }
     },
 
     "network": {
-        "format-wifi": "  {signalStrength}%",
-        "format-disconnected": "⚠ Offline"
+        "format-wifi": " 󰤨  ",
+        "format-disconnected": " 󰤭  "
     },
 
-    "cpu": { "format": " {usage}%" },
-    "memory": { "format": " {used}G" },
+    "cpu": {"format": " 󰻠  {usage}% " },
+    "memory": { "format": " 󰍛  {used}G " },
 
     "battery": {
-        "states": { "warning": 30, "critical": 15 },
-        "format": "{icon} {capacity}%",
-        "format-icons": ["", "", "", "", ""]
+        "format": " {icon} {capacity}% ",
+        "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
     },
 
-    "tray": { "spacing": 10 },
+    "backlight": { "format": " 󰃠  {percent}% " },
 
     "custom/power": {
-        "format": "⏻ ",
+        "format": " ⏻ ",
         "on-click": "wlogout"
     }
 }

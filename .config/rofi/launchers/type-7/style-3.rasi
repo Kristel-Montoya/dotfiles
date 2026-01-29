@@ -13,12 +13,12 @@ configuration {
 /*****----- Global Properties -----*****/
 * {
     font:                        "JetBrains Mono Nerd Font 10";
-    background:                  #faf4edFF; /* Rosé Pine Dawn Base */
-    background-alt:              #f2e9e1FF; /* Surface */
-    foreground:                  #575279FF; /* Text */
-    selected:                    #907aa9FF; /* Iris */
-    active:                      #286983FF; /* Pine */
-    urgent:                      #b4637aff; /* Love */
+    background:                  rgba(255, 255, 255, 0.9);
+    background-alt:              #ffeaf0FF; /* Soft Pink Surface */
+    foreground:                  #2d2d2dFF; /* Dark Gray */
+    selected:                    rgb(243, 175, 255); /* Vibrant Magenta */
+    active:                      #ff66b2FF; /* Neon Pink */
+    urgent:                      #ff4081FF; /* Urgent Pink */
 }
 
 /*****----- Main Window -----*****/
@@ -30,7 +30,7 @@ window {
     width:                       600px;
     enabled:                     true;
     border:                      2px;
-    border-color:                #d7827e; /* Rose */
+    border-color:                #ff66b2; /* Neon Pink */
     border-radius:               12px;
     cursor:                      "default";
     background-color:            @background;
@@ -72,7 +72,7 @@ textbox-prompt-colon {
     padding:                     12px 15px;
     border-radius:               12px;
     background-color:            @background-alt;
-    text-color:                  #ea9d34; /* Gold */
+    text-color:                  #ff66b2; /* Neon Pink */
 }
 
 entry {

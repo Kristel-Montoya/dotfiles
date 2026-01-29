@@ -2,15 +2,15 @@
 {
     "layer": "top",
     "position": "top",
-    "height": 34,
-    "margin-top": 8,
+    "height": 28,
+    "margin-top": 5,
     "margin-left": 15,
     "margin-right": 15,
     "spacing": 0,
 
-    "modules-left": ["custom/launcher", "hyprland/workspaces"],
+    "modules-left": ["hyprland/workspaces"],
     "modules-center": ["clock"],
-    "modules-right": ["network", "cpu", "memory", "battery", "pulseaudio", "tray", "custom/power"],
+    "modules-right": ["battery", "network", "pulseaudio"],
 
     "custom/launcher": {
         "format": " ", // Puedes usar un icono de puntos o el logo de tu distro

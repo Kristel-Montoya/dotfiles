@@ -1,66 +1,77 @@
-/* Rosé Pine Dawn - Estética Unificada */
+/* Cherry Blossom - Minimalist & Clear */
 
 * {
     font-family: "JetBrainsMono Nerd Font", sans-serif;
-    font-size: 12px;
+    font-size: 11px;
     border: none;
+    border-radius: 0;
 }
 
 window#waybar {
-    background-color: rgba(250, 244, 237, 0.7); /* Transparencia para el Blur */
-    border-radius: 22px;
+    background-color: rgba(255, 255, 255, 0.5); /* Frosted glass white */
+    border-radius: 20px;
+    color: #333333;
+    transition-property: background-color;
+    transition-duration: .5s;
 }
 
-/* Contenedores de módulos */
-#custom-launcher, #clock, #network, #cpu, #memory, #battery, #pulseaudio, #tray, #custom-power {
-    background-color: #faf4ed;
-    color: #575279;
-    margin: 5px 0px;
-    padding: 0 5px;
-    border-radius: 16px; /* Bordes suaves estilo Material You */
+/* Modules */
+#workspaces, #clock, #battery, #network, #pulseaudio {
+    background-color: transparent;
+    color: #333333;
+    padding: 0 10px;
+    margin: 5px 0;
 }
 
-/* --- Personalización de Módulos --- */
-
-#custom-launcher {
-    color: #907aa9; /* Iris */
-    margin-left: 8px;
-    padding: 0px 5px 0px 8px;
-}
-
+/* Workspaces */
 #workspaces {
-    border: 1px solid rgba(144, 122, 169, 0.2);
-    background-color: #faf4ed;
-    color: #575279;
-    margin: 5px 3px;
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+#workspaces button {
     padding: 0 5px;
-    border-radius: 16px; 
+    color: #333333;
 }
 
 #workspaces button.active {
-    color: #907aa9;
+    color: #ffb7c5; /* Pink active dot */
 }
 
+#workspaces button.urgent {
+    color: #ffb7c5;
+}
+
+/* Clock */
 #clock {
     font-weight: bold;
-    color: #286983; /* Pine */
+    color: #333333;
 }
 
-/* Agrupación de la derecha */
-#network { border-radius: 16px 0 0 16px; color: #b4637a; }
-#cpu { border-radius: 0; color: #d7827e; }
-#memory { border-radius: 0; color: #ea9d34; }
-#battery { border-radius: 0; color: #56949f; }
-#pulseaudio { border-radius: 0; color: #907aa9; }
-#tray { border-radius: 0; }
-#custom-power { border-radius: 0 16px 16px 0; color: #b4637a; margin-right: 8px; }
+/* Right Modules */
+#battery, #network, #pulseaudio {
+    font-weight: normal;
+}
 
-/* Separadores sutiles entre módulos agrupados */
-.modules-right > widget:not(:first-child) > #cpu,
-.modules-right > widget:not(:first-child) > #memory,
-.modules-right > widget:not(:first-child) > #battery,
-.modules-right > widget:not(:first-child) > #pulseaudio,
-.modules-right > widget:not(:first-child) > #tray,
-.modules-right > widget:not(:first-child) > #custom-power {
-    border-left: 1px solid rgba(152, 147, 165, 0.2);
+#battery.charging, #battery.plugged {
+    color: #333333;
+}
+
+#battery.critical:not(.charging) {
+    color: #ffb7c5;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+/* Tooltips */
+tooltip {
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid #ffb7c5;
+}
+
+tooltip label {
+    color: #333333;
 }

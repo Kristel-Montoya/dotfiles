@@ -1,77 +1,190 @@
-/* Cherry Blossom - Minimalist & Clear */
+/* 
+ * ESTILO WAYBAR - TEMA FLOTANTE OSCURO
+ * Autor: Asistente con IA
+ */
 
+/* =============================================================================
+   1. CONFIGURACIÓN GLOBAL
+   Define la fuente y resetea bordes/estilos por defecto.
+   ============================================================================= */
 * {
     font-family: "JetBrainsMono Nerd Font", sans-serif;
-    font-size: 11px;
+    font-size: 13px;
+    font-weight: bold;
     border: none;
     border-radius: 0;
+    min-height: 0;
 }
 
-window#waybar {
-    background-color: rgba(255, 255, 255, 0.5); /* Frosted glass white */
-    border-radius: 20px;
-    color: #333333;
+/* =============================================================================
+   2. VENTANA PRINCIPAL (BARRA)
+   Configura el fondo, la transparencia, los bordes redondeados y el efecto flotante.
+   ============================================================================= */
+    window#waybar {
+    /* Frosted Glass Effect */
+    background-color: rgba(255, 255, 255, 0.4); 
+    /* Borde sutil para efecto de vidrio */
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    
+    /* El color del texto base */
+    color: #ffffff;
+    
+    /* Bordes redondeados */
+    border-radius: 0px 0px 10px 10px;
+    
+    /* Transiciones suaves al pasar el mouse o cambiar estados */
     transition-property: background-color;
     transition-duration: .5s;
 }
 
-/* Modules */
-#workspaces, #clock, #battery, #network, #pulseaudio {
-    background-color: transparent;
-    color: #333333;
+/* Estilo cuando la barra está oculta (si usas hyprland/hide) */
+    window#waybar.hidden {
+    opacity: 0.2;
+}
+
+/* =============================================================================
+   3. ESTILO DE LOS MÓDULOS (GENERAL)
+   Espaciado y apariencia común para todos los items.
+   ============================================================================= */
+#workspaces,
+#window,
+#clock,
+#battery,
+#cpu,
+#memory,
+#disk,
+#temperature,
+#network,
+#pulseaudio,
+#custom-media,
+#tray,
+#mode,
+#idle_inhibitor,
+#mpd,
+#language, 
+#custom-launcher
+{
     padding: 0 10px;
-    margin: 5px 0;
+    margin: 4px 2px; /* Espaciado entre módulos para separarlos */
+    background-color: transparent; /* Fondo transparente por defecto */
+    color: #c0caf5;
+    /* Opción: Si quieres "caja" por módulo, descomenta abajo: */
+    background-color: rgba(255, 255, 255, 0.657);
+    border-radius: 8px; 
 }
 
-/* Workspaces */
+/* =============================================================================
+   4. SECCIÓN IZQUIERDA: WORKSPACES Y VENTANA
+   ============================================================================= */
+
+/* Contenedor de los workspaces */
 #workspaces {
-    font-weight: bold;
-    margin-left: 10px;
+    background-color: rgba(255, 255, 255, 0.657); /* Caja sutil alrededor de los workspaces */
+    border-radius: 10px;
+    padding-right: 0px;
+    padding-left: 0px;
+    margin-left: 8px;
 }
 
+/* Botones individuales de workspace */
 #workspaces button {
     padding: 0 5px;
-    color: #333333;
+    color: #c2dbfd; 
+    border-radius: 10px; /* Redondear hover */
+    transition: all 0.3s ease;
 }
 
+/* Efecto Hover sobre workspaces */
+#workspaces button:hover {
+    background-color: rgb(140, 213, 255);
+    box-shadow: inherit;
+    text-shadow: inherit;
+}
+
+/* Workspace Activo */
 #workspaces button.active {
-    color: #ffb7c5; /* Pink active dot */
-}
-
-#workspaces button.urgent {
-    color: #ffb7c5;
-}
-
-/* Clock */
-#clock {
+    color: #9eb9f7; /* Blanco/Gris claro */
+    background-color: rgba(206, 231, 255, 0.558);
     font-weight: bold;
-    color: #333333;
+    min-width: 30px; /* Hacerlo un poco más ancho */
 }
 
-/* Right Modules */
-#battery, #network, #pulseaudio {
-    font-weight: normal;
+/* Workspace Urgente (alerta) */
+#workspaces button.urgent {
+    color: #ff63d0; /* Rojo */
 }
 
+
+/* =============================================================================
+   5. SECCIÓN CENTRAL: RELOJ
+   ============================================================================= */
+#clock {
+    font-size: 14px;
+    font-weight: bold;
+    color: #f9adf7; /* Amarillo/Dorado suave */
+}
+
+/* =============================================================================
+   6. SECCIÓN DERECHA: BATERÍA, RED, SONIDO, MENU
+   ============================================================================= */
+
+/* Batería */
+#battery {
+    color: #9ece6a; /* Verde */
+}
 #battery.charging, #battery.plugged {
-    color: #333333;
+    color: #9ece6a;
 }
-
+#battery.warning:not(.charging) {
+    color: #f7e07a; /* Amarillo */
+}
 #battery.critical:not(.charging) {
-    color: #ffb7c5;
+    color: #f7768e; /* Rojo */
     animation-name: blink;
     animation-duration: 0.5s;
-    animation-timing-function: linear;
     animation-iteration-count: infinite;
     animation-direction: alternate;
 }
 
-/* Tooltips */
-tooltip {
-    background: rgba(255, 255, 255, 0.9);
-    border: 1px solid #ffb7c5;
+/* Red / Wi-Fi */
+#network {
+    color: #bb9af7; /* Violeta */
+}
+#network.disconnected {
+    color: #c14d8d;
 }
 
+/* Audio / Volumen */
+#pulseaudio {
+    color: #7dcfff; /* Cian */
+    
+}
+#pulseaudio.muted {
+    color: #565f89;
+}
+
+/*Launcher*/
+#custom-launcher {
+    margin-right: 8px;
+}
+
+
+/* =============================================================================
+   7. ANIMACIONES Y EXTRAS
+   ============================================================================= */
+@keyframes blink {
+    to {
+        background-color: #ffffff;
+        color: #333333;
+    }
+}
+
+/* Tooltips (mensajes flotantes al pasar el mouse) */
+tooltip {
+    background: rgba(205, 199, 255, 0.864);
+    border: 1px solid #ffffff;
+    border-radius: 8px;
+}
 tooltip label {
-    color: #333333;
+    color: #ffffff;
 }
